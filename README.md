@@ -11,7 +11,14 @@ Containerの実行
 - dockerを通してプロジェクトを作成する
 
 ```
-docker run -v $PWD:/app --rm -it veu_js_cli create app
+docker run --name veu_js_container -it -p 8080:8080 -v $PWD:/home veu_js_cli
+```
+
+- 再度Container内で作業する
+
+```
+docker start veu_js_container
+docker exec -it veu_js_container sh
 ```
 
 |オプション等|意味|
